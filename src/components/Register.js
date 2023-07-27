@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
-function Register() {
+const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Perform registration operation using the provided email and password
-    // You can use axios or fetch to make a registration API request to your backend
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // need to implement registration operation using email and password
+    // also need to use axios to make registration API request to backend if I can do it!!
   };
 
   return (
@@ -20,7 +20,7 @@ function Register() {
           <input
             type="email"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(event) => setEmail(event.target.value)}
             required
           />
         </div>
@@ -29,7 +29,7 @@ function Register() {
           <input
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(event) => setPassword(event.target.value)}
             required
           />
         </div>
@@ -38,7 +38,7 @@ function Register() {
           <input
             type="password"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={(event) => setConfirmPassword(event.target.value)}
             required
           />
         </div>

@@ -1,6 +1,4 @@
-/* styles.css */
 
-/* Reset some default styles to create a clean slate */
 body, h1, h2, h3, p, ul, li, button, input {
   margin: 0;
   padding: 0;
@@ -9,7 +7,6 @@ body, h1, h2, h3, p, ul, li, button, input {
   list-style: none;
 }
 
-/* Set global styles */
 body {
   background-color: #f8f8f8;
   color: #333;

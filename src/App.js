@@ -8,8 +8,27 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
 import './App.css';
+import { useState } from 'react';
+
+ // Replace this with actual surf location data from your API
+ const surfData = [
+  { 
+      id: 1,
+      name: 'Surf Location 1',
+      description: 'Description 1' 
+  },
+  { 
+      id: 2, 
+      name: 'Surf Location 2', 
+      description: 'Description 2' 
+  },
+  // will need to connect to backend database eventually
+];
 
 function App() {
+
+  const [surfLocations, setSurfLocations] = useState(surfData);
+  // this is where I would want to connect to locations? but I want it to be logged in
   return (
     <Router>
       <div>
@@ -27,7 +46,7 @@ function App() {
         </header>
         <main className="container">
           <Routes>
-            <Route path="/" element={<SurfLocationList />} />
+            <Route path="/" element={<SurfLocationList surfLocations={surfLocations} />} />
             <Route path="/locations/add" element={<AddSurfLocation />} />
             <Route path="/locations/:id" element={<SurfLocationDetails />} />
             <Route path="/login" element={<Login />} />

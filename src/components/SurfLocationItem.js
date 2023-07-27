@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SurfLocationItem({ location }) {
+const SurfLocationItem = ({ location }) => {
   return (
     <div>
       <h3>{location.name}</h3>

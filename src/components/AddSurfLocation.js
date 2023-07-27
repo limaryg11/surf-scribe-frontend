@@ -1,35 +1,23 @@
 import React, { useState } from 'react';
 
-function AddSurfLocation() {
+const AddSurfLocation = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     // Perform operation to add the new surf location
-    // You can use axios or fetch to make a POST request to your backend API
+    // will need to use axios/fetch to make a POST request to backend API
     const newSurfLocation = {
       name,
       description,
-      // Add any other properties for the new surf location
+    //   will need to add other properties for surf location
     };
 
-    // Code to make a POST request to your backend API
-    // For example, using axios:
-    // axios.post('/api/surf-locations', newSurfLocation)
-    //   .then((response) => {
-    //     console.log('New surf location added:', response.data);
-    //     // Handle success or navigate to the updated list of surf locations
-    //   })
-    //   .catch((error) => {
-    //     console.error('Error adding surf location:', error);
-    //     // Handle error
-    //   });
-  };
+};
 
-  return (
+return (
     <div>
-      {/* Implement the form to add a new surf location */}
       <h2>Add New Surf Location</h2>
       <form onSubmit={handleSubmit}>
         <div>
@@ -37,19 +25,19 @@ function AddSurfLocation() {
           <input
             type="text"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(event) => setName(event.target.value)}
             required
-          />
+            />
         </div>
         <div>
           <label>Description:</label>
           <textarea
             value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            onChange={(event) => setDescription(event.target.value)}
             required
-          />
+            />
         </div>
-        {/* You can add more form fields as needed */}
+        {/* this is where i would add more form fields if desired */}
         <button type="submit">Add Surf Location</button>
       </form>
     </div>
@@ -57,3 +45,39 @@ function AddSurfLocation() {
 }
 
 export default AddSurfLocation;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Code to make a POST request to your backend API
+// For example, using axios:
+// axios.post('/api/surf-locations', newSurfLocation)
+//   .then((response) => {
+//     console.log('New surf location added:', response.data);
+//     // Handle success or navigate to the updated list of surf locations
+//   })
+//   .catch((error) => {
+//     console.error('Error adding surf location:', error);
+//     // Handle error
+//   });

@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer>
       {/* add more footer stuff */}
-      <p>&copy; {new Date().getFullYear()} Your Surf Location App. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} SurfScribe. All rights reserved.</p>
     </footer>
   );
 }

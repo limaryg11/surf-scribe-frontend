@@ -33,7 +33,9 @@ function App() {
   return (
     <Router className='allofit'>
       <div className='sames'>
-      <header style={{ backgroundImage: 'url(/wave.png)' }}>
+      <header>
+          <div className='logo-container'>
+            </div>
           <div className="navbar">
             <h1 className="logo">SurfScribe</h1>
             <nav className="nav-links">

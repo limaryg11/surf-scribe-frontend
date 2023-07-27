@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 
 const SurfLocationList = ({surfLocations}) => {
  
@@ -16,7 +17,12 @@ const SurfLocationList = ({surfLocations}) => {
           </li>
         ))}
       </ul>
+        <Link to="/locations/add">
+            <Button>Add a New Surf Location</Button></Link>
+      
     </div>
+    
+    
   );
 }
 

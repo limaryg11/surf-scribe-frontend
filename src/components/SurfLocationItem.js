@@ -1,4 +1,3 @@
-// SurfLocationItem.js
 import React from 'react';
 
 function SurfLocationItem({ location }) {

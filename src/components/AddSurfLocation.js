@@ -1,4 +1,3 @@
-// AddSurfLocation.js
 import React, { useState } from 'react';
 
 function AddSurfLocation() {

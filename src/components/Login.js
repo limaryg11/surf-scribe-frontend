@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -14,25 +15,29 @@ function Login() {
     <div>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
+        <div className='form-group'>
+          <label htmlFor='email'>Email:</label>
           <input
+            id='email'
+            name='email'
             type="email"
             value={email}
             onChange={(event) => setEmail(event.target.value)}
             required
         />
         </div>
-        <div>
-          <label>Password:</label>
+        <div className='form-group'>
+          <label htmlFor='password'>Password:</label>
           <input
+            id='password'
+            name='password'
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             required
           />
         </div>
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
       </form>
     </div>
   );

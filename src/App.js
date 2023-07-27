@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import './App.css';
 import { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
  // Replace this with actual surf location data from your API
  const surfData = [
@@ -30,8 +31,8 @@ function App() {
   const [surfLocations, setSurfLocations] = useState(surfData);
   // this is where I would want to connect to locations? but I want it to be logged in
   return (
-    <Router>
-      <div>
+    <Router className='allofit'>
+      <div className='sames'>
       <header style={{ backgroundImage: 'url(/wave.png)' }}>
           <div className="navbar">
             <h1 className="logo">SurfScribe</h1>

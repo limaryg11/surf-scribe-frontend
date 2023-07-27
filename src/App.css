@@ -1,4 +1,5 @@
 
+
 body, h1, h2, h3, p, ul, li, button, input {
   margin: 0;
   padding: 0;
@@ -9,18 +10,28 @@ body, h1, h2, h3, p, ul, li, button, input {
 
 body {
   background-color: #f8f8f8;
-  color: #333;
+  color: #fefafa;
 }
 
+/* .allofit {
+  min-height: 100vh;
+
+} */
+
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
+  /* max-width: 1200px; */
+  /* min-height: 80vh; */
+  margin: 0;
   padding: 20px;
+  background-color: rgb(184, 222, 224);
+  /* background-image: url(https://images.unsplash.com/photo-1587533042502-1209d3f2d891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1004&q=80);
+  background-size: cover; */
 }
 
 /* Header styles */
 header {
-  background-color: #fff;
+  min-height: 10vh;
+  background-color: beige;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -36,8 +47,9 @@ header {
 
 .logo {
   font-family: 'Pacifico', cursive;
-  font-size: 24px;
+  font-size: 40px;
   text-align: center;
+  margin-left: 5vw;;
 }
 
 .nav-links {
@@ -59,6 +71,20 @@ header {
 /* Main content styles */
 main {
   margin-top: 40px;
+  min-height: 75vh;
+  display: flex;
+  /* center horizontally */
+  /* justify-content: center;  */
+  /* center vertically */
+  align-items: center; 
+  flex-direction: column;
+  /* color: white; */
+}
+
+.sames{
+  background-color: rgb(184, 222, 224);
+  background-image: url(https://images.unsplash.com/photo-1587533042502-1209d3f2d891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1004&q=80);
+  background-size: cover;
 }
 
 .section {
@@ -74,7 +100,7 @@ main {
   margin-bottom: 20px;
 }
 
-/* Button styles */
+/* Button styles */ 
 .button {
   padding: 10px 20px;
   border-radius: 4px;
@@ -89,15 +115,45 @@ main {
   background-color: #007d86;
 }
 
-/* Footer styles */
-footer {
-  text-align: center;
-  padding: 20px;
-  background-color: #8ad7db;
-  color: #fff;
+/* form stuff */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* adjust the spacing as needed */
 }
 
-/* Media queries for responsiveness */
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+
+label {
+  font-weight: bold; /* Optionally make the label bold */
+  display: block; /* Display the label as a block element */
+  margin-bottom: 5px; /* Add space below the label */
+}
+
+
+/* If you want to add some space around the input elements */
+input {
+  margin: 5px; /* Adjust the margin value as needed */
+  padding: 5px; /* Adjust the padding value as needed */
+}
+
+
+/* footer styles */
+footer {
+  min-height: 15vh;
+  text-align: center;
+  padding: 20px;
+  background-color: #0e5e66;
+  color: #fff;
+  
+}
+
+/* media stuffffff */
 @media screen and (max-width: 768px) {
   .navbar {
     flex-direction: column;

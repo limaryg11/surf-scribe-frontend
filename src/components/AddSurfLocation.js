@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
 
 const AddSurfLocation = () => {
   const [name, setName] = useState('');
@@ -20,25 +21,29 @@ return (
     <div>
       <h2>Add New Surf Location</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Name:</label>
+        <div className='form-group'>
+          <label htmlFor="locationName">Location Name:</label>
           <input
+            id="locationName" 
+            name="locationName"
             type="text"
             value={name}
             onChange={(event) => setName(event.target.value)}
             required
             />
         </div>
-        <div>
-          <label>Description:</label>
+        <div className='form-group'>
+          <label htmlFor="description">Description:</label>
           <textarea
+            id="description" 
+            name="description"
             value={description}
             onChange={(event) => setDescription(event.target.value)}
             required
             />
         </div>
         {/* this is where i would add more form fields if desired */}
-        <button type="submit">Add Surf Location</button>
+        <Button type="submit">Add Surf Location</Button>
       </form>
     </div>
   );

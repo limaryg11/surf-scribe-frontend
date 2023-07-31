@@ -1,20 +1,37 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
-const SurfLocationDetails = ({surfLocations}) => {
-  const { id } = useParams();
-//   this will need surf location data from API based on id
+const SurfLocationDetails = ({ surfLocations }) => {
 
+  const {id} = useParams();
+  const selectedSurfLocation = surfLocations.find((surfLocation) => surfLocation.id === id);
+
+  console.log(id);
+  console.log(selectedSurfLocation);
+  
   return (
+
     <div>
-      {/* display detailed information about the surf location */}
-      {/* I will edit what it actually displays */}
-      <h2>Surf Location Details - ID: {id}</h2>
-      <p>Details for surf location with ID {id}</p>
-      
+      <h2>Surf Location Details</h2>
+      {selectedSurfLocation ? (
+        <div>
+          <h3>{selectedSurfLocation.name}</h3>
+          <p>{selectedSurfLocation.description}</p>
+          <h3>Notes:</h3>
+          <ul>
+            {selectedSurfLocation.notes.map((note) => (
+              <li key={note.id}>{note.text}</li>
+            ))}
+          </ul>
+        </div>
+      ) : (
+        <p>Surf location not found.</p>
+      )}
     </div>
   );
-}
+
+
+
+};
 
 export default SurfLocationDetails;

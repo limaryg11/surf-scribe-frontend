@@ -1,21 +1,34 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
+
+
+const API_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080';
 
 const AddSurfLocation = () => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Perform operation to add the new surf location
-    // will need to use axios/fetch to make a POST request to backend API
     const newSurfLocation = {
       name,
       description,
     //   will need to add other properties for surf location
     };
 
-};
+    axios.post(`${API_URL}/surf-locations`, newSurfLocation)
+      .then((response) => {
+        console.log('New SurfLocation added:', response.data);
+        window.location.href = '/'; 
+      })
+      .catch((error) => {
+        console.error('Error adding SurfLocation:', error);
+      });
+  };
+
 
 return (
     <div>
@@ -50,39 +63,3 @@ return (
 }
 
 export default AddSurfLocation;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Code to make a POST request to your backend API
-// For example, using axios:
-// axios.post('/api/surf-locations', newSurfLocation)
-//   .then((response) => {
-//     console.log('New surf location added:', response.data);
-//     // Handle success or navigate to the updated list of surf locations
-//   })
-//   .catch((error) => {
-//     console.error('Error adding surf location:', error);
-//     // Handle error
-//   });

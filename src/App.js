@@ -8,28 +8,54 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Register from './components/Register';
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
- // Replace this with actual surf location data from your API
- const surfData = [
-  { 
-      id: 1,
-      name: 'Surf Location 1',
-      description: 'Description 1' 
-  },
-  { 
-      id: 2, 
-      name: 'Surf Location 2', 
-      description: 'Description 2' 
-  },
-  // will need to connect to backend database eventually
-];
+const API_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080';
 
 function App() {
 
-  const [surfLocations, setSurfLocations] = useState(surfData);
-  // this is where I would want to connect to locations? but I want it to be logged in
+
+
+  const [surfLocations, setSurfLocations] = useState([]);
+
+  useEffect(() => {
+    // Fetch SurfLocations from the backend API when the component mounts
+    axios.get(`${API_URL}/surf-locations`)
+      .then((response) => {
+        console.log("getting data")
+        setSurfLocations(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching SurfLocations:', error);
+      });
+  }, []);
+
+  console.log(surfLocations);
+
+
+  const handleDelete = (surfLocationId) => {
+    // Show confirmation popup
+    const confirmed = window.confirm("Are you sure you want to delete this location?");
+
+    if (confirmed) {
+      
+      axios.delete(`${API_URL}/surf-locations/${surfLocationId}`)
+        .then((response) => {
+          setSurfLocations((prevSurfLocations) =>
+            prevSurfLocations.filter((surfLocation) => surfLocation.id !== surfLocationId)
+          );
+        })
+        .catch((error) => {
+          console.error('Error deleting SurfLocation:', error);
+        });
+    }
+  };
+
+  
+
+
   return (
     <Router className='allofit'>
       <div className='sames'>
@@ -40,7 +66,7 @@ function App() {
             <h1 className="logo">SurfScribe</h1>
             <nav className="nav-links">
               <a className="nav-link" href="/">Home</a>
-              <a className="nav-link" href="/locations/add">Add Location</a>
+              {/* <a className="nav-link" href="/locations/add">Add Location</a> */}
               {/* may add more */}
               <a className="nav-link" href="/login">Login</a>
               <a className="nav-link" href="/register">Register</a>
@@ -49,9 +75,9 @@ function App() {
         </header>
         <main className="container">
           <Routes>
-            <Route path="/" element={<SurfLocationList surfLocations={surfLocations} />} />
+            <Route path="/" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete}/>} />
             <Route path="/locations/add" element={<AddSurfLocation />} />
-            <Route path="/locations/:id" element={<SurfLocationDetails />} />
+            <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
           </Routes>

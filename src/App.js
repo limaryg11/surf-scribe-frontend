@@ -12,7 +12,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const API_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080';
+const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
 
 function App() {
 

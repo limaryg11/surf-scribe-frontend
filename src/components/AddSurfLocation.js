@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import axios from 'axios';
 
 
-const API_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8080';
+const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
 
 const AddSurfLocation = () => {
   const [name, setName] = useState('');

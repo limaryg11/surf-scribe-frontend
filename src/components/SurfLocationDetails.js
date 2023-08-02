@@ -15,6 +15,13 @@ const SurfLocationDetails = ({ surfLocations }) => {
 
   const [newNoteText, setNewNoteText] = useState('');
   const [editingNoteId, setEditingNoteId] = useState(null);
+  const [editedNoteText, setEditedNoteText] = useState('')
+
+  const enterEditMode = (noteId, currentText) => {
+    setEditingNoteId(noteId);
+    setEditedNoteText(currentText);
+  };
+  
 
   const handleAddNote = () => {
     const newNote = {
@@ -33,9 +40,10 @@ const SurfLocationDetails = ({ surfLocations }) => {
       });
   };
 
-  const handleEditNote = (noteId, updatedText) => {
+  const handleEditNote = (noteId) => {
     const updatedNote = {
-      text: updatedText,
+      text: editedNoteText,
+      timestamp: new Date().toISOString(),
     };
 
     axios
@@ -65,15 +73,16 @@ const SurfLocationDetails = ({ surfLocations }) => {
                   <>
                     <input
                       type="text"
-                      value={note.text}
-                      onChange={(e) => handleEditNote(note.id, e.target.value)}
+                      value={editedNoteText}
+                      onChange={(e) => setEditedNoteText(e.target.value)}
                     />
+                    <button onClick={() => handleEditNote(note.id)}>Submit</button>
                     <button onClick={() => setEditingNoteId(null)}>Cancel</button>
                   </>
                 ) : (
                   <>
                     {note.text}{' '}
-                    <button onClick={() => setEditingNoteId(note.id)}>Edit</button>
+                    <button onClick={() => enterEditMode(note.id, note.text)}>Edit</button>
                   </>
                 )}
               </li>

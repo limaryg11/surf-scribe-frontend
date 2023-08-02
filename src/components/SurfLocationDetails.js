@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
-import { Stack } from 'react-bootstrap';
+import { Container, Stack } from 'react-bootstrap';
 
 
 const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
@@ -13,12 +13,14 @@ const SurfLocationDetails = ({ surfLocations }) => {
   const {id} = useParams();
   const selectedSurfLocation = surfLocations.find((surfLocation) => surfLocation.id === id);
 
-  // console.log(id);
-  // console.log(selectedSurfLocation);
+
 
   const [newNoteText, setNewNoteText] = useState('');
   const [editingNoteId, setEditingNoteId] = useState(null);
-  const [editedNoteText, setEditedNoteText] = useState('')
+  const [editedNoteText, setEditedNoteText] = useState('');
+
+
+
 
   const enterEditMode = (noteId, currentText) => {
     setEditingNoteId(noteId);
@@ -59,15 +61,20 @@ const SurfLocationDetails = ({ surfLocations }) => {
         console.error('Error updating Note:', error);
       });
   };
+
+  
   
   return (
 
-    <div>
+    <Container>
       <h2>Surf Location Details</h2>
       {selectedSurfLocation ? (
         <div>
-          <h3>{selectedSurfLocation.name}</h3>
-          <p>{selectedSurfLocation.description}</p>
+          <Stack gap={3}>
+          <h4>Location Name: <p>{selectedSurfLocation.name}</p> </h4>
+          <h4>Description: <p>{selectedSurfLocation.description}</p></h4>
+          </Stack>
+          
           <h3>Notes:</h3>
             <ul>
             {selectedSurfLocation.notes.map((note) => (
@@ -99,23 +106,27 @@ const SurfLocationDetails = ({ surfLocations }) => {
               </li>
             ))}
           </ul>
+          <div>
+            <h3>Add New Note:</h3>
+            <Stack gap={2}>
+            <input
+              type="text"
+              value={newNoteText}
+              onChange={(e) => setNewNoteText(e.target.value)}
+              style={{width:'40vw'}}
+            />
+              <Button size='xxl' 
+              onClick={handleAddNote}
+              style={{width:'40vw'}}
+              >Add Note</Button>
+            </Stack>
+          </div>
         </div>
       ) : (
         <p>Surf location not found.</p>
       )}
 
-      <div>
-        <h3>Add New Note:</h3>
-        <Stack gap={2}>
-        <input
-          type="text"
-          value={newNoteText}
-          onChange={(e) => setNewNoteText(e.target.value)}
-        />
-          <Button onClick={handleAddNote}>Add Note</Button>
-        </Stack>
-      </div>
-    </div>
+    </Container>
   );
 
 

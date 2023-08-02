@@ -1,16 +1,15 @@
-import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { Stack } from 'react-bootstrap';
 
 
-const SurfLocationList = ({surfLocations, onDelete}) => {
+const SurfLocationList = ({surfLocations, onDelete, onSurfLocationClick}) => {
 
-  const [selectedSurfLocation, setSelectedSurfLocation] = useState(null);
+  // const [selectedSurfLocation, setSelectedSurfLocation] = useState(null);
 
-  const handleSurfLocationClick = (surfLocation) => {
-    setSelectedSurfLocation(surfLocation);
-  };
+  // const handleSurfLocationClick = (surfLocation) => {
+  //   setSelectedSurfLocation(surfLocation);
+  // };
  
 
   return (
@@ -20,7 +19,7 @@ const SurfLocationList = ({surfLocations, onDelete}) => {
       <ul>
         {surfLocations.map(location => (
           <li key={location.id}>
-            <Link to={`/locations/${location.id}`} onClick={() => handleSurfLocationClick(location)}>
+            <Link to={`/locations/${location.id}`} onClick={() => onSurfLocationClick(location.id)}>
                 <h3>{location.name}</h3>
                 <button onClick={() => onDelete(location.id)}>Delete</button>
                 </Link>

@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import './App.css';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -23,6 +24,11 @@ function App() {
 
   const [surfLocations, setSurfLocations] = useState([]);
 
+  const {id} = useParams();
+
+  const currentSurfLocation = surfLocations.find((surfLocation) => surfLocation.id === id);
+  const [selectedSurfLocation, setSelectedSurfLocation] = useState(currentSurfLocation);
+
   useEffect(() => {
     // Fetch SurfLocations from the backend API when the component mounts
     axios.get(`${API_URL}/surf-locations`)
@@ -36,6 +42,16 @@ function App() {
   }, []);
 
   console.log(surfLocations);
+
+  const handleSurfLocationClick = (id) => {
+    axios.get(`${API_URL}/surf-locations/${id}`)
+      .then((response) => {
+        setSelectedSurfLocation(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching SurfLocation:', error);
+      });
+  };
 
 
   const handleDelete = (surfLocationId) => {
@@ -80,9 +96,9 @@ function App() {
           </header>
           <main className="container">
             <Routes>
-              <Route path="/" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete}/>} />
+              <Route path="/" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
               <Route path="/locations/add" element={<AddSurfLocation />} />
-              <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} />} />
+              <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>

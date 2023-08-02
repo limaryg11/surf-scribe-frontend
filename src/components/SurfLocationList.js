@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import { Stack } from 'react-bootstrap';
+
 
 const SurfLocationList = ({surfLocations, onDelete}) => {
 
@@ -14,6 +16,7 @@ const SurfLocationList = ({surfLocations, onDelete}) => {
   return (
     <div>
       <h2>Surf Locations</h2>
+      <Stack gap={3}>
       <ul>
         {surfLocations.map(location => (
           <li key={location.id}>
@@ -26,7 +29,7 @@ const SurfLocationList = ({surfLocations, onDelete}) => {
       </ul>
         <Link to="/locations/add">
             <Button>Add a New Surf Location</Button></Link>
-      
+      </Stack>
     </div>
     
     

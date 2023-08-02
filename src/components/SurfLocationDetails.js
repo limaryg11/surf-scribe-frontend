@@ -69,27 +69,30 @@ const SurfLocationDetails = ({ surfLocations }) => {
           <h3>{selectedSurfLocation.name}</h3>
           <p>{selectedSurfLocation.description}</p>
           <h3>Notes:</h3>
-          <ul>
+            <ul>
             {selectedSurfLocation.notes.map((note) => (
+              
               <li key={note.id}>
                 {editingNoteId === note.id ? (
                   <>
+                  <Stack gap={3}>
                     <input
                       type="text"
                       value={editedNoteText}
                       onChange={(e) => setEditedNoteText(e.target.value)}
-                    />
+                      />
                   
                     <Stack direction='horizontal' gap={2}>
                       <Button onClick={() => handleEditNote(note.id)}>Submit</Button>
                       <Button onClick={() => setEditingNoteId(null)}>Cancel</Button>
                     </Stack>
+                  </Stack>
                   </>
                 ) : (
                   <>
+                    <Stack direction='horizontal' gap={3}>
                     {note.text}{' '}
-                    <Stack>
-                      <Button onClick={() => enterEditMode(note.id, note.text)}>Edit</Button>
+                      <Button className='editButton' size='sm' onClick={() => enterEditMode(note.id, note.text)}>Edit</Button>
                     </Stack>
                   </>
                 )}
@@ -103,12 +106,14 @@ const SurfLocationDetails = ({ surfLocations }) => {
 
       <div>
         <h3>Add New Note:</h3>
+        <Stack gap={2}>
         <input
           type="text"
           value={newNoteText}
           onChange={(e) => setNewNoteText(e.target.value)}
         />
-        <button onClick={handleAddNote}>Add Note</button>
+          <Button onClick={handleAddNote}>Add Note</Button>
+        </Stack>
       </div>
     </div>
   );

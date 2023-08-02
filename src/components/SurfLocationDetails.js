@@ -2,6 +2,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
+import Button from 'react-bootstrap/Button';
+import { Stack } from 'react-bootstrap';
+
 
 const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
 
@@ -76,13 +79,18 @@ const SurfLocationDetails = ({ surfLocations }) => {
                       value={editedNoteText}
                       onChange={(e) => setEditedNoteText(e.target.value)}
                     />
-                    <button onClick={() => handleEditNote(note.id)}>Submit</button>
-                    <button onClick={() => setEditingNoteId(null)}>Cancel</button>
+                  
+                    <Stack direction='horizontal' gap={2}>
+                      <Button onClick={() => handleEditNote(note.id)}>Submit</Button>
+                      <Button onClick={() => setEditingNoteId(null)}>Cancel</Button>
+                    </Stack>
                   </>
                 ) : (
                   <>
                     {note.text}{' '}
-                    <button onClick={() => enterEditMode(note.id, note.text)}>Edit</button>
+                    <Stack>
+                      <Button onClick={() => enterEditMode(note.id, note.text)}>Edit</Button>
+                    </Stack>
                   </>
                 )}
               </li>

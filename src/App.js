@@ -97,6 +97,7 @@ function App() {
               <h1 className="logo">SurfScribe</h1>
               <nav className="nav-links">
                 <a className="nav-link" href="/">Home</a>
+                <a className='nav-link' href="/locations">Surf Spots</a>
                 {/* may add more */}
                 <a className="nav-link" href="/login">Login</a>
                 <a className="nav-link" href="/register">Register</a>

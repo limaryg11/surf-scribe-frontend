@@ -35,7 +35,7 @@ const AddSurfLocation = ({onSubmit}) => {
       try {
         await axios.post(`${API_URL}/surf-locations`, newSurfLocation);
         onSubmit(); // Fetch updated surf locations
-        window.location.href = '/'; // Navigate back to the map
+        window.location.href = '/locations'; // Navigate back to the map
       } catch (error) {
         console.error('Error adding SurfLocation:', error);
       }

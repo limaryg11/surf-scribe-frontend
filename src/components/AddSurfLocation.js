@@ -5,13 +5,14 @@ import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
 
-const AddSurfLocation = () => {
+
+const AddSurfLocation = ({onSubmit}) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const newSurfLocation = {
       name,
@@ -19,14 +20,26 @@ const AddSurfLocation = () => {
     //   will need to add other properties for surf location
     };
 
-    axios.post(`${API_URL}/surf-locations`, newSurfLocation)
-      .then((response) => {
-        console.log('New SurfLocation added:', response.data);
-        window.location.href = '/'; 
-      })
-      .catch((error) => {
+    
+
+    // axios.post(`${API_URL}/surf-locations`, newSurfLocation)
+    //   .then((response) => {
+    //     console.log('New SurfLocation added:', response.data);
+    //     onSubmit(); // Call the onSubmit function with the new location name
+    //     window.location.href = '/';
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error adding SurfLocation:', error);
+    //   });
+
+      try {
+        await axios.post(`${API_URL}/surf-locations`, newSurfLocation);
+        onSubmit(); // Fetch updated surf locations
+        window.location.href = '/'; // Navigate back to the map
+      } catch (error) {
         console.error('Error adding SurfLocation:', error);
-      });
+      }
+    
   };
 
 

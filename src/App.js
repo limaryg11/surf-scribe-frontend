@@ -12,9 +12,6 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
 
@@ -29,8 +26,9 @@ function App() {
   const currentSurfLocation = surfLocations.find((surfLocation) => surfLocation.id === id);
   const [selectedSurfLocation, setSelectedSurfLocation] = useState(currentSurfLocation);
 
-  useEffect(() => {
-    // Fetch SurfLocations from the backend API when the component mounts
+  useEffect(() => {fetchSurfLocations()}, []);
+
+  const fetchSurfLocations = () => {
     axios.get(`${API_URL}/surf-locations`)
       .then((response) => {
         console.log("getting data")
@@ -39,8 +37,7 @@ function App() {
       .catch((error) => {
         console.error('Error fetching SurfLocations:', error);
       });
-  }, []);
-
+  }; 
   console.log(surfLocations);
 
   const handleSurfLocationClick = (id) => {
@@ -73,6 +70,18 @@ function App() {
     }
   };
 
+
+
+  // const saveLocation = async (newLocation) => {
+  //   try {
+  //     const response = await axios.post(`${API_URL}/surf-locations`, newLocation);
+  //     return response.data;
+  //   } catch (error) {
+  //     console.error('Error adding location:', error);
+  //   }
+  // };
+
+
   
 
 
@@ -87,7 +96,6 @@ function App() {
               <h1 className="logo">SurfScribe</h1>
               <nav className="nav-links">
                 <a className="nav-link" href="/">Home</a>
-                {/* <a className="nav-link" href="/locations/add">Add Location</a> */}
                 {/* may add more */}
                 <a className="nav-link" href="/login">Login</a>
                 <a className="nav-link" href="/register">Register</a>
@@ -97,7 +105,7 @@ function App() {
           <main className="container">
             <Routes>
               <Route path="/" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
-              <Route path="/locations/add" element={<AddSurfLocation />} />
+              <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations}/>} />
               <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />

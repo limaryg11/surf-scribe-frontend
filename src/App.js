@@ -12,6 +12,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import SurfMap from './components/SurfMap';
 
 const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
 
@@ -104,7 +105,8 @@ function App() {
           </header>
           <main className="container">
             <Routes>
-              <Route path="/" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
+              <Route path="/" element={<SurfMap />} />
+              <Route path="/locations" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
               <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations}/>} />
               <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />} />
               <Route path="/login" element={<Login />} />

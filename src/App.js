@@ -8,10 +8,15 @@ import SurfLocationDetails from './components/SurfLocationDetails';
 import AddSurfLocation from './components/AddSurfLocation';
 import Footer from './components/Footer';
 import SurfMap from './components/SurfMap';
-import Login from './components/Login';
-import Register from './components/Register';
-import './App.css';
+// import Login from './components/Login';
+// import Register from './components/Register';
 import axios from 'axios';
+import { Stack } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
+import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
@@ -82,23 +87,45 @@ function App() {
               </div>
             <div className="navbar">
               <h1 className="logo">SurfScribe</h1>
-              <nav className="nav-links">
+              <Navbar bg="light" data-bs-theme="light">
+              <Container>
+                <Navbar.Brand href="/"></Navbar.Brand>
+                <Nav 
+                variant="pills"
+                className="justify-content-center"
+                defaultActiveKey="/home"
+                >
+                  <Nav.Item>
+                    <Nav.Link href="/home">Home</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link 
+                    href="/locations"
+                    eventKey="SurfSpots"
+                    >Surf Spots</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+              </Container>
+            </Navbar>
+              {/* <nav className="nav-links">
+                <Stack direction='horizontal' gap={3}>
                 <a className="nav-link" href="/">Home</a>
                 <a className='nav-link' href="/locations">Surf Spots</a>
+                </Stack> */}
                 {/* may add more */}
-                <a className="nav-link" href="/login">Login</a>
-                <a className="nav-link" href="/register">Register</a>
-              </nav>
+                {/* <a className="nav-link" href="/login">Login</a>
+                <a className="nav-link" href="/register">Register</a> */}
+              {/* </nav> */}
             </div>
           </header>
           <main className="container">
             <Routes>
-              <Route path="/" element={<SurfMap surfLocations={surfLocations}/>} />
+              <Route path="/home" element={<SurfMap surfLocations={surfLocations}/>} />
               <Route path="/locations" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
               <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations}/>} />
               <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
+              {/* <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} /> */}
             </Routes>
           </main>
           <Footer />

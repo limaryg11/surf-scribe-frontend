@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import axios from 'axios';
-
+import Button from 'react-bootstrap/Button';
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
 
 const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
 
@@ -46,31 +48,37 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
 return (
     <div>
       <h2>Add New Surf Location</h2>
-      <form onSubmit={handleSubmit}>
-        <div className='form-group'>
-          <label htmlFor="locationName">Location Name:</label>
-          <input
+      <Form onSubmit={handleSubmit}>
+        <Row className='form-group'>
+        <Form.Group as={Col} controlId='formGridLocationName'>
+          <Form.Label htmlFor="locationName">Location Name:</Form.Label>
+          <Form.Control
             id="locationName" 
             name="locationName"
             type="text"
+            placeholder='Enter Surf Location...'
             value={name}
             onChange={(event) => setName(event.target.value)}
             required
             />
-        </div>
-        <div className='form-group'>
-          <label htmlFor="description">Description:</label>
-          <textarea
+        </Form.Group>
+        </Row>
+        <Form.Group className='form-group' controlId='formGridAddress'>
+          <Form.Label htmlFor="description">Description:</Form.Label>
+          <Form.Control
+            as='textarea'
+            rows={3}
             id="description" 
             name="description"
+            placeholder='Enter City or Beach Name of your surf spot'
             value={description}
             onChange={(event) => setDescription(event.target.value)}
             required
             />
-        </div>
+        </Form.Group>
         {/* this is where i would add more form fields if desired */}
-        <Button type="submit">Add Surf Location</Button>
-      </form>
+        <Button variant='primary' type="submit">Add Surf Location</Button>
+      </Form>
     </div>
   );
 }

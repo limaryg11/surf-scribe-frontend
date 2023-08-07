@@ -73,19 +73,6 @@ function App() {
 
 
 
-  // const saveLocation = async (newLocation) => {
-  //   try {
-  //     const response = await axios.post(`${API_URL}/surf-locations`, newLocation);
-  //     return response.data;
-  //   } catch (error) {
-  //     console.error('Error adding location:', error);
-  //   }
-  // };
-
-
-  
-
-
   return (
 
       <Router className='allofit'>
@@ -106,7 +93,7 @@ function App() {
           </header>
           <main className="container">
             <Routes>
-              <Route path="/" element={<SurfMap />} />
+              <Route path="/" element={<SurfMap surfLocations={surfLocations}/>} />
               <Route path="/locations" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
               <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations}/>} />
               <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />} />

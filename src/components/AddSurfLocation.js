@@ -6,7 +6,7 @@ import axios from 'axios';
 const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
 
 
-const AddSurfLocation = ({onSubmit}) => {
+const AddSurfLocation = ({onSubmit, surfLocations}) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 

@@ -15,6 +15,8 @@ import { Stack } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -79,59 +81,81 @@ function App() {
 
 
   return (
-
-      <Router className='allofit'>
-        <div className='sames'>
-        <header>
-            <div className='logo-container'>
-              </div>
-            <div className="navbar">
-              <h1 className="logo">SurfScribe</h1>
-              <Navbar bg="light" data-bs-theme="light">
-              <Container>
-                <Navbar.Brand href="/"></Navbar.Brand>
-                <Nav 
-                variant="pills"
-                className="justify-content-center"
-                defaultActiveKey="/home"
-                >
-                  <Nav.Item>
-                    <Nav.Link href="/home">Home</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link 
-                    href="/locations"
-                    eventKey="SurfSpots"
-                    >Surf Spots</Nav.Link>
-                  </Nav.Item>
-                </Nav>
-              </Container>
-            </Navbar>
-              {/* <nav className="nav-links">
-                <Stack direction='horizontal' gap={3}>
-                <a className="nav-link" href="/">Home</a>
-                <a className='nav-link' href="/locations">Surf Spots</a>
-                </Stack> */}
-                {/* may add more */}
-                {/* <a className="nav-link" href="/login">Login</a>
-                <a className="nav-link" href="/register">Register</a> */}
-              {/* </nav> */}
-            </div>
-          </header>
-          <main className="container">
+    <Router>
+      <Navbar bg="dark" variant="dark" expand="lg">
+        <Container>
+          <Navbar.Brand href="#">SurfScribe</Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ml-auto">
+              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/locations">Surf Spots</Nav.Link>
+              {/* Add more Nav.Link components */}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+      <Container fluid className="main-container">
+        <Row className="flex-grow-1">
+          <Col>
             <Routes>
-              <Route path="/home" element={<SurfMap surfLocations={surfLocations}/>} />
-              <Route path="/locations" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
-              <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations}/>} />
-              <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />} />
-              {/* <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} /> */}
+              <Route path="/" element={<SurfMap surfLocations={surfLocations} />} />
+              <Route
+                path="/locations"
+                element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick} />}
+              />
+              <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations} />} />
+              <Route
+                path="/locations/:id"
+                element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />}
+              />
+              {/* Add more routes */}
             </Routes>
-          </main>
-          <Footer />
-        </div>
-      </Router>
+          </Col>
+        </Row>
+      </Container>
+      <Footer />
+    </Router>
   );
 }
 
 export default App;
+
+{/* <nav className="nav-links">
+  <Stack direction='horizontal' gap={3}>
+  <a className="nav-link" href="/">Home</a>
+  <a className='nav-link' href="/locations">Surf Spots</a>
+  </Stack> */}
+  {/* may add more */}
+  {/* <a className="nav-link" href="/login">Login</a>
+  <a className="nav-link" href="/register">Register</a> */}
+{/* </nav> */}
+  // return (
+
+  //     <Router>
+  //           <Navbar bg="dark" variant="dark" expand="lg">
+  //           <Container>
+  //             <Navbar.Brand href="#">SurfScribe</Navbar.Brand>
+  //             <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  //             <Navbar.Collapse id="basic-navbar-nav">
+  //               <Nav className="ml-auto">
+  //                 <Nav.Link href="/">Home</Nav.Link>
+  //                 <Nav.Link href="/locations">Surf Spots</Nav.Link>
+  //                 {/* Add more Nav.Link components */}
+  //               </Nav>
+  //             </Navbar.Collapse>
+  //           </Container>
+  //           </Navbar>
+  //         <Container>
+  //           <Routes>
+  //             <Route path="/" element={<SurfMap surfLocations={surfLocations} />} />
+  //             <Route path="/locations" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
+  //             <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations}/>} />
+  //             <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />} />
+  //             {/* <Route path="/login" element={<Login />} />
+  //             <Route path="/register" element={<Register />} /> */}
+  //           </Routes>
+  //         </Container>
+  //         <Footer />
+  //     </Router>
+  // );

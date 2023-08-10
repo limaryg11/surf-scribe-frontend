@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import "./Map.css";
+import "./SurfMap.css";
 
 
 
@@ -16,7 +16,7 @@ const SurfMap = ({surfLocations}) => {
       const map = new mapboxgl.Map({
         container: mapContainerRef.current,
         // See style options here: https://docs.mapbox.com/api/maps/#styles
-        style: 'mapbox://styles/limaryg11/cll1aa3gs004j01r80der6amm',
+        style: 'mapbox://styles/mapbox/streets-v12',
         center: [-158.1045, 21.5936],
         zoom: 2,
       });

@@ -3,5 +3,19 @@
     justify-content: center;
     width: 80vw;
     height: 50vh;
+    border-radius: 20%;
 }
 
+.locations-list {
+    align-items: center;
+    justify-content: center;
+    color: darkblue;
+    background-color: rgb(237, 246, 249);
+    text-align: center;
+    border-radius: 45%;
+    width: 40vw;
+}
+
+ul {
+    list-style-type: none;
+}

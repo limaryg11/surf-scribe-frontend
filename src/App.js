@@ -13,10 +13,10 @@ import SurfMap from './components/SurfMap';
 import axios from 'axios';
 import { Stack } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -82,8 +82,8 @@ function App() {
 
   return (
     <Router>
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
+      <Navbar bg="light" data-bs-theme='light'>
+        <Container className='nav'>
           <Navbar.Brand href="#">SurfScribe</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

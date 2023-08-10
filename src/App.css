@@ -1,13 +1,13 @@
 
 
 .main-container {
-  padding: 20%;
+  padding: 5%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   min-height: 90vh; 
-  background-image: url(https://images.unsplash.com/photo-1513553404607-988bf2703777?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80);
+  background-image: url(https://images.unsplash.com/photo-1515060939377-d73d9c162a66?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2952&q=80);
   background-size: cover;
 }
 
@@ -17,5 +17,5 @@
 }
 
 .nav {
-  margin: 5%;
+  margin: 2%;
 }

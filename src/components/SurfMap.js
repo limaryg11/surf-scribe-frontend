@@ -59,7 +59,7 @@ const SurfMap = ({ surfLocations }) => {
 
   return (
     <div className="map-and-list-container">
-      <h2 className="tag">Your Surf Locations</h2>
+      {/* <h2 className="tag">Your Surf Locations</h2> */}
       <div className="map-container" ref={mapContainerRef} />
       <div className="locations-list">
         <ul>

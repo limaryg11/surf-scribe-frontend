@@ -21,8 +21,10 @@
     align-items: center;
     justify-content: center;
     color: darkblue;
-    background-color: rgb(237, 246, 249);
-    background-image: url(https://images.unsplash.com/photo-1611072337226-1140ab367200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2888&q=80);
+    background-color: rgb(254, 254, 254);
+    border: solid;
+    border-color: rgb(252, 252, 252);
+    background-image: url(https://as2.ftcdn.net/v2/jpg/03/01/16/41/1000_F_301164174_cwkA3lQmphf1wwemWEA6TYpmxtC4Fdnh.jpg);
     text-align: center;
     border-radius: 45%;
     width: 40vw;
@@ -52,7 +54,10 @@ ul {
     list-style-type: none;
 }
 
-.tag { 
+/* .tag { 
     margin-bottom: 20px;
-    color: white;
-}
+    color: rgb(10, 0, 0);
+    font-family: fantasy;
+    font-weight: bolder;
+    outline: auto;
+} */

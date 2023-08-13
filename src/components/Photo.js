@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap';
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
+const API_URL = process.env.REACT_APP_API || 'http://18.117.77.193:8080';
 
 const Photo = ({surfLocations}) => {
 

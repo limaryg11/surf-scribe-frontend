@@ -9,12 +9,6 @@ import './SurfLocationList.css'
 
 const SurfLocationList = ({surfLocations, onDelete, onSurfLocationClick}) => {
 
-  // const [selectedSurfLocation, setSelectedSurfLocation] = useState(null);
-
-  // const handleSurfLocationClick = (surfLocation) => {
-  //   setSelectedSurfLocation(surfLocation);
-  // };
- 
 
   return (
     <Container className='surflocation-container'>

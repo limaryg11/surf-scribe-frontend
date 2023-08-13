@@ -21,7 +21,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const API_URL = process.env.REACT_APP_API || 'http://localhost:8080';
+const API_URL = process.env.REACT_APP_API || 'http://18.117.77.193:8080';
 
 function App() {
 

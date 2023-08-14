@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const API_URL = process.env.REACT_APP_API || 'http://18.216.93.191:8080';
+const API_URL = process.env.REACT_APP_API || 'https://cors-anywhere.herokuapp.com/http://18.216.93.191:8080';
 
 
 const AddSurfLocation = ({onSubmit, surfLocations}) => {

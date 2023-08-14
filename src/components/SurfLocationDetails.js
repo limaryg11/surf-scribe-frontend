@@ -6,7 +6,7 @@ import Button from 'react-bootstrap/Button';
 import { Container, Stack } from 'react-bootstrap';
 
 
-const API_URL = process.env.REACT_APP_API || 'http://18.219.118.158:8080';
+const API_URL = process.env.REACT_APP_API || '18.216.93.191:8080';
 
 const SurfLocationDetails = ({ surfLocations }) => {
 

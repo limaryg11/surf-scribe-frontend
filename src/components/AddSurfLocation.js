@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 
-const API_URL = process.env.REACT_APP_API || '18.219.118.158:8080';
+const API_URL = process.env.REACT_APP_API || 'http://18.219.118.158:8080';
 
 
 const AddSurfLocation = ({onSubmit, surfLocations}) => {

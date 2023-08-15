@@ -12,7 +12,8 @@ const API_URL = process.env.REACT_APP_API || 'https://cors-anywhere.herokuapp.co
 const AddSurfLocation = ({onSubmit, surfLocations}) => {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [isValidLocation, setIsValidLocation] = useState(false)
+  const [isValidLocation, setIsValidLocation] = useState(true);
+  const [suggestedLocations, setSuggestedLocations] = useState([]);
 
   const handleLocationValidation = async () => {
     try {
@@ -22,10 +23,22 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
         },
       });
       setIsValidLocation(response.data.features.length > 0); // Check if location is valid
+      
+      if (response.data.features.length > 0) {
+        const locations = response.data.features.map((feature) => feature.place_name);
+        setSuggestedLocations(locations);
+      } else {
+        setSuggestedLocations([]);
+      }
     } catch (error) {
       console.error('Error validating location:', error);
       setIsValidLocation(false);
     }
+  };
+
+  const handleAutofillSuggestion = (suggestion) => {
+    setName(suggestion);
+    setSuggestedLocations([]);
   };
 
   const handleSubmit = async (event) => {
@@ -60,20 +73,39 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
     <div>
       <h2>Add New Surf Location</h2>
       <Form onSubmit={handleSubmit}>
-        <Row className='form-group'>
-        <Form.Group as={Col} controlId='formGridLocationName'>
-          <Form.Label htmlFor="locationName">Location Name:</Form.Label>
-          <Form.Control
-            id="locationName" 
-            name="locationName"
-            type="text"
-            placeholder='Enter Surf Location...'
-            value={name}
-            onChange={(event) => setName(event.target.value)}
-            required
+        <Row className="form-group">
+          <Form.Group as={Col} controlId="formGridLocationName">
+            <Form.Label htmlFor="locationName">Location Name:</Form.Label>
+            <Form.Control
+              id="locationName"
+              name="locationName"
+              type="text"
+              placeholder="Enter Surf Location..."
+              value={name}
+              onChange={(event) => {
+                setName(event.target.value);
+                handleLocationValidation(); // Trigger validation on every change
+              }}
+              required
             />
-          {!isValidLocation && <Alert variant="danger" className="error-message">Invalid location name</Alert>}
-        </Form.Group>
+            {suggestedLocations.length > 0 && (
+              <ul className="suggested-locations">
+                {suggestedLocations.map((suggestion, index) => (
+                  <li
+                    key={index}
+                    onClick={() => handleAutofillSuggestion(suggestion)}
+                  >
+                    {suggestion}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {!isValidLocation && (
+              <Alert variant="danger" className="error-message">
+                Invalid location name
+              </Alert>
+            )}
+          </Form.Group>
         </Row>
         <Form.Group className='form-group' controlId='formGridAddress'>
           <Form.Label htmlFor="description">Description:</Form.Label>
@@ -96,16 +128,4 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
   );
 }
 
-export default AddSurfLocation;
-
-
-
-// axios.post(`${API_URL}/surf-locations`, newSurfLocation)
-//   .then((response) => {
-//     console.log('New SurfLocation added:', response.data);
-//     onSubmit(); // Call the onSubmit function with the new location name
-//     window.location.href = '/';
-//   })
-//   .catch((error) => {
-//     console.error('Error adding SurfLocation:', error);
-//   });
+export default AddSurfLocation;                                

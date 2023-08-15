@@ -71,6 +71,7 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
             onChange={(event) => setName(event.target.value)}
             required
             />
+          {!isValidLocation && <p className="error-message">Invalid location name</p>}
         </Form.Group>
         </Row>
         <Form.Group className='form-group' controlId='formGridAddress'>
@@ -86,7 +87,6 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
             onBlur={handleLocationValidation}
             required
             />
-            {!isValidLocation && <p className="error-message">Invalid location name</p>}
         </Form.Group>
         {/* this is where i would add more form fields if desired */}
         <Button variant='primary' type="submit">Add Surf Location</Button>

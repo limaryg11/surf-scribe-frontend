@@ -4,6 +4,7 @@ import { Stack } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
 import './SurfLocationList.css'
 
 
@@ -16,17 +17,17 @@ const SurfLocationList = ({surfLocations, onDelete, onSurfLocationClick}) => {
       <h2>Surf Locations</h2>
       </Row>
       <Row>
-      <ul>
+      <ListGroup as="ul">
         {surfLocations.map(location => (
-          <li key={location.id}>
+          <ListGroup.Item as="li" key={location.id}>
             <Stack direction='horizontal' gap={2}>
             <Link to={`/locations/${location.id}`} onClick={() => onSurfLocationClick(location.id)}>
                 <h3>{location.name}</h3>
                 </Link>
                 <Button variant="secondary" size="sm"onClick={() => onDelete(location.id)}>Delete</Button></Stack>
-          </li>
+          </ListGroup.Item>
         ))}
-      </ul>
+      </ListGroup>
       </Row>
       <Row>
         <Link to="/locations/add">

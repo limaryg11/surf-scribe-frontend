@@ -2,6 +2,10 @@ import React, { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import "./SurfMap.css";
+import MapInstructions from "./MapInstructions";
+import { Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
 
 mapboxgl.accessToken =
@@ -58,10 +62,15 @@ const SurfMap = ({ surfLocations }) => {
   }, [map, surfLocations]);
 
   return (
-    <div className="map-and-list-container">
+    <Container className="map-and-list-container">
+      <MapInstructions />
       {/* <h2 className="tag">Your Surf Locations</h2> */}
-      <div className="map-container" ref={mapContainerRef} />
-      <div className="locations-list">
+      <Row>
+        <Link to="/locations/add">
+            <Button size="sm" className="mapButton">Add a New Surf Location</Button></Link>
+      </Row>
+      <Row className="map-container" ref={mapContainerRef} />
+      <Row className="locations-list">
         <ul>
           {surfLocations.map((location) => (
             <li className='location-item' key={location.id} onClick={() => handleLocationClick(location)}>
@@ -69,9 +78,10 @@ const SurfMap = ({ surfLocations }) => {
             </li>
           ))}
         </ul>
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
+
 
 export default SurfMap;

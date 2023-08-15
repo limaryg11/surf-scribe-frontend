@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
+import Alert from 'react-bootstrap/Alert';
 
 const API_URL = process.env.REACT_APP_API || 'https://cors-anywhere.herokuapp.com/http://18.191.157.196:8080';
 
@@ -71,7 +72,7 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
             onChange={(event) => setName(event.target.value)}
             required
             />
-          {!isValidLocation && <p className="error-message">Invalid location name</p>}
+          {!isValidLocation && <Alert variant="danger" className="error-message">Invalid location name</Alert>}
         </Form.Group>
         </Row>
         <Form.Group className='form-group' controlId='formGridAddress'>

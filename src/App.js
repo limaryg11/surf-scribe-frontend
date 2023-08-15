@@ -8,6 +8,7 @@ import SurfLocationDetails from './components/SurfLocationDetails';
 import AddSurfLocation from './components/AddSurfLocation';
 import Footer from './components/Footer';
 import SurfMap from './components/SurfMap';
+import Home from './components/Home';
 // import Login from './components/Login';
 // import Register from './components/Register';
 import axios from 'axios';
@@ -84,11 +85,11 @@ function App() {
     <Router>
       <Navbar bg="light" data-bs-theme='light'>
         <Container className='nav'>
-          <Navbar.Brand href="#">SurfScribe</Navbar.Brand>
+          <Navbar.Brand href="/home">SurfScribe</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href="/">Home</Nav.Link>
+              <Nav.Link href="/">Map</Nav.Link>
               <Nav.Link href="/locations">Surf Spots</Nav.Link>
               {/* Add more Nav.Link components */}
             </Nav>
@@ -108,6 +109,10 @@ function App() {
               <Route
                 path="/locations/:id"
                 element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />}
+              />
+              <Route
+              path="/home"
+              element={<Home />}
               />
               {/* Add more routes */}
             </Routes>

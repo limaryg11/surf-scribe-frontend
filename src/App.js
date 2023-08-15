@@ -21,7 +21,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const API_URL = process.env.REACT_APP_API || 'https://cors-anywhere.herokuapp.com/http://18.191.157.196:8080';
+const API_URL = process.env.REACT_APP_API || 'https://corsproxy.io/?http://18.191.157.196:8080';
 
 function App() {
 

@@ -130,28 +130,7 @@ export default App;
   {/* <a className="nav-link" href="/login">Login</a>
   <a className="nav-link" href="/register">Register</a> */}
 {/* </nav> */}
-  // return (
 
-  //     <Router>
-  //           <Navbar bg="dark" variant="dark" expand="lg">
-  //           <Container>
-  //             <Navbar.Brand href="#">SurfScribe</Navbar.Brand>
-  //             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-  //             <Navbar.Collapse id="basic-navbar-nav">
-  //               <Nav className="ml-auto">
-  //                 <Nav.Link href="/">Home</Nav.Link>
-  //                 <Nav.Link href="/locations">Surf Spots</Nav.Link>
-  //                 {/* Add more Nav.Link components */}
-  //               </Nav>
-  //             </Navbar.Collapse>
-  //           </Container>
-  //           </Navbar>
-  //         <Container>
-  //           <Routes>
-  //             <Route path="/" element={<SurfMap surfLocations={surfLocations} />} />
-  //             <Route path="/locations" element={<SurfLocationList surfLocations={surfLocations} onDelete={handleDelete} onSurfLocationClick={handleSurfLocationClick}/>} />
-  //             <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations}/>} />
-  //             <Route path="/locations/:id" element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />} />
   //             {/* <Route path="/login" element={<Login />} />
   //             <Route path="/register" element={<Register />} /> */}
   //           </Routes>

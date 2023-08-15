@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap';
 import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API || 'https://cors-anywhere.herokuapp.com/http://18.191.157.196:8080';
+const API_URL = process.env.REACT_APP_API || 'https://cors-proxy.htmldriven.com/?url=http://18.191.157.196:8080';
 
 const Photo = ({surfLocations}) => {
 

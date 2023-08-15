@@ -17,7 +17,7 @@ const SurfLocationList = ({surfLocations, onDelete, onSurfLocationClick}) => {
       <h2>Surf Locations</h2>
       </Row>
       <Row>
-      <ListGroup as="ul">
+      <ListGroup className='list-group' as="ul">
         {surfLocations.map(location => (
           <ListGroup.Item action variant="info" as="li" key={location.id}>
             <Stack direction='horizontal' gap={2}>

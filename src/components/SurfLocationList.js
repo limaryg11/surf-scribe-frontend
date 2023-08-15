@@ -19,7 +19,7 @@ const SurfLocationList = ({surfLocations, onDelete, onSurfLocationClick}) => {
       <Row>
       <ListGroup as="ul">
         {surfLocations.map(location => (
-          <ListGroup.Item as="li" key={location.id}>
+          <ListGroup.Item action variant="info" as="li" key={location.id}>
             <Stack direction='horizontal' gap={2}>
             <Link to={`/locations/${location.id}`} onClick={() => onSurfLocationClick(location.id)}>
                 <h3>{location.name}</h3>

@@ -74,7 +74,7 @@ const SurfMap = ({ surfLocations }) => {
         <ul>
           {surfLocations.map((location) => (
             <li className='location-item' key={location.id} onClick={() => handleLocationClick(location)}>
-              {location.name}
+              {location.name.split(',')[0]}
             </li>
           ))}
         </ul>

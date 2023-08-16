@@ -38,7 +38,11 @@ function App() {
   useEffect(() => {fetchSurfLocations()}, []);
 
   const fetchSurfLocations = () => {
-    axios.get(`${API_URL}/surf-locations`)
+    axios.get(`${API_URL}/surf-locations`, {
+      headers: {
+        'x-cors-api-key': '0c0ab06acf522553020af761343d42f1a7fecf1fd650c72b3c3ac3c80ffd6342'
+      }
+    })
       .then((response) => {
         console.log("getting data")
         setSurfLocations(response.data);
@@ -50,7 +54,11 @@ function App() {
   console.log(surfLocations);
 
   const handleSurfLocationClick = (id) => {
-    axios.get(`${API_URL}/surf-locations/${id}`)
+    axios.get(`${API_URL}/surf-locations/${id}`, {
+      headers: {
+        'x-cors-api-key': '0c0ab06acf522553020af761343d42f1a7fecf1fd650c72b3c3ac3c80ffd6342'
+      }
+    })
       .then((response) => {
         setSelectedSurfLocation(response.data);
       })
@@ -66,7 +74,11 @@ function App() {
 
     if (confirmed) {
       
-      axios.delete(`${API_URL}/surf-locations/${surfLocationId}`)
+      axios.delete(`${API_URL}/surf-locations/${surfLocationId}`, {
+        headers: {
+          'x-cors-api-key': '0c0ab06acf522553020af761343d42f1a7fecf1fd650c72b3c3ac3c80ffd6342'
+        }
+      })
         .then((response) => {
           setSurfLocations((prevSurfLocations) =>
             prevSurfLocations.filter((surfLocation) => surfLocation.id !== surfLocationId)

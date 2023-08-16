@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Alert from 'react-bootstrap/Alert';
 
+
 const API_URL = process.env.REACT_APP_API || 'https://proxy.cors.sh/http://18.191.157.196:8080';
 
 
@@ -61,7 +62,11 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
 
     
     try {
-      await axios.post(`${API_URL}/surf-locations`, newSurfLocation);
+      await axios.post(`${API_URL}/surf-locations`, newSurfLocation, {
+        headers: {
+          'x-cors-api-key': '0c0ab06acf522553020af761343d42f1a7fecf1fd650c72b3c3ac3c80ffd6342'
+        }
+      });
       onSubmit(); // Fetch updated surf locations
       window.location.href = '/locations'; // Navigate back to the map
     } catch (error) {

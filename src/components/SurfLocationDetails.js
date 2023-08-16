@@ -35,7 +35,11 @@ const SurfLocationDetails = ({ surfLocations }) => {
     };
 
     axios
-      .post(`${API_URL}/surf-locations/${selectedSurfLocation.id}/notes`, newNote)
+      .post(`${API_URL}/surf-locations/${selectedSurfLocation.id}/notes`, newNote, {
+        headers: {
+          'x-cors-api-key': '0c0ab06acf522553020af761343d42f1a7fecf1fd650c72b3c3ac3c80ffd6342'
+        }
+      })
       .then((response) => {
         console.log('New Note added:', response.data);
         window.location.reload();
@@ -52,7 +56,11 @@ const SurfLocationDetails = ({ surfLocations }) => {
     };
 
     axios
-      .put(`${API_URL}/surf-locations/${selectedSurfLocation.id}/notes/${noteId}`, updatedNote)
+      .put(`${API_URL}/surf-locations/${selectedSurfLocation.id}/notes/${noteId}`, updatedNote, {
+        headers: {
+          'x-cors-api-key': '0c0ab06acf522553020af761343d42f1a7fecf1fd650c72b3c3ac3c80ffd6342'
+        }
+      })
       .then((response) => {
         console.log('Note updated:', response.data);
         window.location.reload();

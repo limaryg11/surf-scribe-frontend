@@ -7,7 +7,7 @@ import { Stack } from 'react-bootstrap';
 
 
 
-const API_URL = process.env.REACT_APP_API || 'http://18.117.189.190:8080';
+const API_URL = process.env.REACT_APP_API || 'https://agile-badlands-99127-e0dd8e555c49.herokuapp.com/http://18.117.189.190:8080';
 
 const Note = ({ note, onEditNote }) => {
   const [editing, setEditing] = useState(false);

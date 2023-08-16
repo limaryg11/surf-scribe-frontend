@@ -44,6 +44,8 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setSuggestedLocations([]);
+
     if (!isValidLocation) {
       console.log('Invalid Location')
       return;
@@ -74,7 +76,7 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
       <h2>Add New Surf Location</h2>
       <Form onSubmit={handleSubmit}>
         <Row className="form-group">
-          <Form.Group as={Col} controlId="formGridLocationName">
+          <Form.Group as={Col}>
             <Form.Label htmlFor="locationName">Location Name:</Form.Label>
             <Form.Control
               id="locationName"
@@ -107,7 +109,7 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
             )}
           </Form.Group>
         </Row>
-        <Form.Group className='form-group' controlId='formGridAddress'>
+        <Form.Group className='form-group'>
           <Form.Label htmlFor="description">Description:</Form.Label>
           <Form.Control
             as='textarea'

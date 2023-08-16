@@ -95,6 +95,7 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
                 {suggestedLocations.map((suggestion, index) => (
                   <li
                     key={index}
+                    onBlur={handleLocationValidation}
                     onClick={() => handleAutofillSuggestion(suggestion)}
                   >
                     {suggestion}
@@ -119,7 +120,6 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
             placeholder='Enter City or Beach Name of your surf spot'
             value={description}
             onChange={(event) => setDescription(event.target.value)}
-            onBlur={handleLocationValidation}
             required
             />
         </Form.Group>

@@ -6,8 +6,8 @@ import Button from 'react-bootstrap/Button';
 import { Stack } from 'react-bootstrap';
 
 
-const API_URL = process.env.REACT_APP_API || 'http://18.117.189.190:8080';
 
+const API_URL = process.env.REACT_APP_API || 'http://18.117.189.190:8080';
 
 const Note = ({ note, onEditNote }) => {
   const [editing, setEditing] = useState(false);

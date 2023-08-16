@@ -10,7 +10,7 @@ const MapInstructions = () => {
   if (show) {
     return (
       <Alert variant="info" onClose={() => setShow(false)} dismissible>
-        <Alert.Heading>Welcome to your Surf Spot Map Interface</Alert.Heading>
+        <Alert.Heading>Welcome to your SurfScribe Map Interface</Alert.Heading>
         <p>
           Use this map interface to see your surf locations on the map. 
           You can click on the name of surf location or navigate through the map to see surf locations you have already added. 

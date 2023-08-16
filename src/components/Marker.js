@@ -1,5 +1,5 @@
-import React from 'react';
+// import React from 'react';
 
-const Marker = ({ id }) => <div id={`marker-${id}`} className="marker" />;
+// const Marker = ({ id }) => <div id={`marker-${id}`} className="marker" />;
 
-export default Marker;
+// export default Marker;

@@ -1,13 +1,13 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
 import { useState } from 'react';
-import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { Stack } from 'react-bootstrap';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 
 
-const API_URL = process.env.REACT_APP_API || 'https://agile-badlands-99127-e0dd8e555c49.herokuapp.com/http://18.117.189.190:8080';
+// const API_URL = process.env.REACT_APP_API || 'https://agile-badlands-99127-e0dd8e555c49.herokuapp.com/http://18.117.189.190:8080';
 
 const Note = ({ note, onEditNote }) => {
   const [editing, setEditing] = useState(false);

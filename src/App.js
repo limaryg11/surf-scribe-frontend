@@ -71,7 +71,7 @@ function App() {
           setSurfLocations((prevSurfLocations) =>
             prevSurfLocations.filter((surfLocation) => surfLocation.id !== surfLocationId)
           );
-          window.location.href = '/'; 
+          window.location.href = '/locations'; 
         })
         .catch((error) => {
           console.error('Error deleting SurfLocation:', error);

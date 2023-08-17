@@ -4,6 +4,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import Button from 'react-bootstrap/Button';
 import { Container, Stack } from 'react-bootstrap';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import Form from 'react-bootstrap/Form';
+import ListGroup from 'react-bootstrap/ListGroup';
+import "./SurfLocationDetails.css"
 
 
 const API_URL = process.env.REACT_APP_API || 'https://agile-badlands-99127-e0dd8e555c49.herokuapp.com/http://18.117.189.190:8080';
@@ -67,58 +71,115 @@ const SurfLocationDetails = ({ surfLocations }) => {
   return (
 
     <Container>
-      <h2>Surf Location Details</h2>
+      <h1>Surf Location Details</h1>
       {selectedSurfLocation ? (
-        <div>
+        <div className='center'>
           <Stack gap={3}>
-          <h4>Location Name: <p>{selectedSurfLocation.name}</p> </h4>
-          <h4>Description: <p>{selectedSurfLocation.description}</p></h4>
+          <h4 className="p-3 mb-2 bg-light bg-gradient text-dark rounded-5 bg-opacity-50"
+          >Location: <p>{selectedSurfLocation.name}</p> </h4>
+          <h4 className="p-3 mb-2 bg-light bg-gradient text-dark rounded-5 bg-opacity-50">
+            Description: <p>{selectedSurfLocation.description}
+            </p></h4>
           </Stack>
           
           <h3>Notes:</h3>
-            <ul>
+            <ListGroup as="ul">
             {selectedSurfLocation.notes.map((note) => (
               
-              <li key={note.id}>
+              <ListGroup.Item as="li" action variant="info" className="p-3 mb-2 bg-gradient text-dark rounded-5"key={note.id}>
                 {editingNoteId === note.id ? (
                   <>
                   <Stack gap={3}>
-                    <input
+                  <>
+                    <FloatingLabel
+                      controlId="floatingTextarea"
+                      label="Edit Note"
+                      className="mb-3 rounded-5"
+                    >
+                      <Form.Control 
+                      as="textarea" 
+                      placeholder="Leave a comment here"
+                      value={editedNoteText}
+                      className='rounded-5'
+                      style={{ height: '100px', width:'40vw' }}
+                      onChange={(e) => setEditedNoteText(e.target.value)}
+                      />
+                    </FloatingLabel>
+                  </>
+                    {/* <input
                       type="text"
                       value={editedNoteText}
                       onChange={(e) => setEditedNoteText(e.target.value)}
-                      />
-                  
-                    <Stack direction='horizontal' gap={2}>
-                      <Button onClick={() => handleEditNote(note.id)}>Submit</Button>
-                      <Button onClick={() => setEditingNoteId(null)}>Cancel</Button>
+                      /> */}
+                    {/* <div className='vr' /> */}
+                    <Stack direction='horizontal' className='d-grid gap-2 d-md-flex justify-content-md-end' gap={2}>
+                      <Button 
+                      variant="light"
+                      className="bg-info text-dark rounded-4 bg-opacity-25"  onClick={() => handleEditNote(note.id)}>Submit</Button>
+                      <Button 
+                      variant="light"
+                      className="bg-info text-dark rounded-4 bg-opacity-25"  onClick={() => setEditingNoteId(null)}>Cancel</Button>
                     </Stack>
                   </Stack>
                   </>
                 ) : (
                   <>
-                    <Stack direction='horizontal' gap={3}>
+                    <Stack direction='horizontal'>
+                      <div className='noteText'>
                     {note.text}{' '}
-                      <Button className='editButton' size='sm' onClick={() => enterEditMode(note.id, note.text)}>Edit</Button>
+                    </div>
+                      <div className='editButton'>
+                      <Button
+                      variant="light" 
+                      className="bg-info text-dark rounded-4 bg-opacity-25" 
+                      size='sm' 
+                      onClick={() => enterEditMode(note.id, note.text)}>
+                        Edit
+                        </Button>
+                        </div>
                     </Stack>
                   </>
                 )}
-              </li>
+              </ListGroup.Item>
             ))}
-          </ul>
+          </ListGroup>
           <div>
             <h3>Add New Note:</h3>
-            <Stack gap={2}>
-            <input
+            <Stack gap={3}>
+            <ListGroup>
+              <ListGroup.Item as="li" action variant="info" className="p-3 mb-2 bg-success bg-gradient text-dark rounded-5 bg-opacity-25">
+            <>
+              <FloatingLabel controlId="floatingTextarea2" label="New Note">
+                <Form.Control
+                  as="textarea"
+                  placeholder="Leave a comment here"
+                  className="rounded-5"
+                  style={{ height: '100px', width:'40vw' }}
+                  value={newNoteText}
+                  onChange={(e) => setNewNoteText(e.target.value)}
+                />
+              </FloatingLabel>
+            </>
+            
+            {/* <input
               type="text"
               value={newNoteText}
               onChange={(e) => setNewNoteText(e.target.value)}
               style={{width:'40vw'}}
-            />
-              <Button size='xxl' 
+            /> */}
+              
+              <Button
+              id="add-note"
+              size='xxl' 
               onClick={handleAddNote}
               style={{width:'40vw'}}
-              >Add Note</Button>
+              variant="info"
+              className="p-3 mb-2 bg-gradient text-white rounded-4 bg-opacity-50"
+              >
+              Add Note
+              </Button>
+              </ListGroup.Item>
+            </ListGroup>
             </Stack>
           </div>
         </div>

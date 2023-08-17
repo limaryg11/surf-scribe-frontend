@@ -21,10 +21,10 @@ const SurfLocationList = ({surfLocations, onDelete, onSurfLocationClick}) => {
         {surfLocations.map(location => (
           <ListGroup.Item action variant="info" as="li" key={location.id}>
             <Stack direction='horizontal' gap={2}>
-            <Link to={`/locations/${location.id}`} onClick={() => onSurfLocationClick(location.id)}>
+            <Link className='link-info mx-2' to={`/locations/${location.id}`} onClick={() => onSurfLocationClick(location.id)}>
                 <h3>{location.name.split(',')[0]}</h3>
                 </Link>
-                <Button variant="secondary" size="sm"onClick={() => onDelete(location.id)}>Delete</Button></Stack>
+                <Button variant="info" className="text-white" size="sm"onClick={() => onDelete(location.id)}>Delete</Button></Stack>
           </ListGroup.Item>
         ))}
       </ListGroup>

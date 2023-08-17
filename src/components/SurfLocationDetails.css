@@ -36,3 +36,9 @@ h1 {
     text-align: center;
     margin-left: 25vw;
 }
+
+.noteText {
+    max-width: 40vw; /* Set the maximum width for the container */
+    overflow-wrap: break-word; /* Allow words to wrap within the container */
+    word-wrap: break-word; /* Fallback for older browsers */
+  }

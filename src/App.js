@@ -80,6 +80,10 @@ function App() {
 
   // ...
 const handleDeleteNote = (surfLocationId, noteId) => {
+
+  const confirmed = window.confirm("Are you sure you want to delete this location?");
+
+  if (confirmed) {
   axios
     .delete(`${API_URL}/surf-locations/${surfLocationId}/notes/${noteId}`)
     .then((response) => {
@@ -97,6 +101,7 @@ const handleDeleteNote = (surfLocationId, noteId) => {
     .catch((error) => {
       console.error('Error deleting Note:', error);
     });
+  }
 };
   
 

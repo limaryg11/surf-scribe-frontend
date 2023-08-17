@@ -88,7 +88,7 @@ const SurfLocationDetails = ({ surfLocations, handleDeleteNote }) => {
           <h4>
             Description: </h4>
             
-           <p className="mb-2 bg-light bg-gradient text-dark rounded-5 bg-opacity-75">{selectedSurfLocation.description}</p>
+          <p className="mb-2 bg-light bg-gradient text-dark rounded-5 bg-opacity-75">{selectedSurfLocation.description}</p>
           </Stack>
           </ListGroup>
           
@@ -96,7 +96,7 @@ const SurfLocationDetails = ({ surfLocations, handleDeleteNote }) => {
             <ListGroup as="ul">
             {selectedSurfLocation.notes.map((note) => (
               
-              <ListGroup.Item as="li" action variant="info" className="p-3 mb-2 bg-gradient text-dark rounded-5"key={note.id}>
+              <ListGroup.Item as="li" action variant="info" className="p-3 mb-2 bg-gradient text-dark rounded-5" key={note.id}>
                 {editingNoteId === note.id ? (
                   <>
                   <Stack gap={3}>
@@ -138,7 +138,8 @@ const SurfLocationDetails = ({ surfLocations, handleDeleteNote }) => {
                       <div className='noteText'>
                     {note.text}{' '}
                     </div>
-                      <Stack direction="horizontal" gap={2} className='editButton'>
+                    </Stack>
+                      <Stack direction="horizontal"  className='d-grid gap-2 d-md-flex justify-content-md-end' gap={2}>
                       <Button
                       variant="light" 
                       className="bg-info text-dark rounded-4 bg-opacity-25" 
@@ -155,7 +156,7 @@ const SurfLocationDetails = ({ surfLocations, handleDeleteNote }) => {
                       Delete
                     </Button>
                         </Stack>
-                    </Stack>
+                    
                   </>
                 )}
               </ListGroup.Item>

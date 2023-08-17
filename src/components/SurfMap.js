@@ -51,7 +51,7 @@ const SurfMap = ({ surfLocations }) => {
         // Attach a popup with surf location details
         const popup = new mapboxgl.Popup({ offset: 25 })
           .setHTML(`<div>
-            <h3>${surfLocation.name}</h3>
+            <h5 className="map-name">${surfLocation.name}</h5>
             <p>${surfLocation.description}</p>
             <a href="/locations/${surfLocation.id}">See Details</a>
           </div>`);

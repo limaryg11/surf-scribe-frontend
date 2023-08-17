@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:wght@300&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&family=Fuzzy+Bubbles&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200&display=swap');
 
 #instructionButton {
     margin-bottom: 10px;
@@ -10,7 +15,6 @@
 }
 
 .info-message {
-    white-space: pre-line;
-    font-family: 'Architects Daughter', cursive;
-    font-size: large;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-size: larger;
 }

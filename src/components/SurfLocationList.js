@@ -24,14 +24,17 @@ const SurfLocationList = ({surfLocations, onDelete, onSurfLocationClick}) => {
             <Link className='link-info mx-2' to={`/locations/${location.id}`} onClick={() => onSurfLocationClick(location.id)}>
                 <h3>{location.name.split(',')[0]}</h3>
                 </Link>
-                <Button variant="info" className="text-white" size="sm"onClick={() => onDelete(location.id)}>Delete</Button></Stack>
+                <Button variant="info" className="bg-info text-dark rounded-4 bg-opacity-50"  size="sm"onClick={() => onDelete(location.id)}>Delete</Button></Stack>
           </ListGroup.Item>
         ))}
       </ListGroup>
       </Row>
       <Row>
         <Link to="/locations/add">
-            <Button variant="primary" size="lg">Add a New Surf Location</Button></Link>
+            <Button variant="light"
+                    className="bg-info text-dark rounded-4 bg-opacity-50 " 
+                    id="addNewButton"
+                    size="lg">Add a New Surf Location</Button></Link>
       </Row>
     </Container>
     

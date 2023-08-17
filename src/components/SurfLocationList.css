@@ -1,5 +1,7 @@
 h2 {
     justify-content: center;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .list-group{
@@ -7,4 +9,10 @@ h2 {
     margin-bottom: 10px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
+}
+
+#addNewButton {
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
 }

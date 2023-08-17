@@ -12,7 +12,7 @@ import "./SurfLocationDetails.css"
 
 const API_URL = process.env.REACT_APP_API || 'https://agile-badlands-99127-e0dd8e555c49.herokuapp.com/http://18.117.189.190:8080';
 
-const SurfLocationDetails = ({ surfLocations }) => {
+const SurfLocationDetails = ({ surfLocations, handleDeleteNote }) => {
 
   const {id} = useParams();
   const selectedSurfLocation = surfLocations.find((surfLocation) => surfLocation.id === id);
@@ -65,6 +65,8 @@ const SurfLocationDetails = ({ surfLocations }) => {
         console.error('Error updating Note:', error);
       });
   };
+
+  
 
   
   
@@ -136,7 +138,7 @@ const SurfLocationDetails = ({ surfLocations }) => {
                       <div className='noteText'>
                     {note.text}{' '}
                     </div>
-                      <div className='editButton'>
+                      <Stack direction="horizontal" gap={2} className='editButton'>
                       <Button
                       variant="light" 
                       className="bg-info text-dark rounded-4 bg-opacity-25" 
@@ -144,7 +146,15 @@ const SurfLocationDetails = ({ surfLocations }) => {
                       onClick={() => enterEditMode(note.id, note.text)}>
                         Edit
                         </Button>
-                        </div>
+                      <Button
+                      variant="danger"
+                      className="bg-danger text-white rounded-4 bg-opacity-50"
+                      size='sm'
+                      onClick={() => handleDeleteNote(selectedSurfLocation.id, note.id)}
+                    >
+                      Delete
+                    </Button>
+                        </Stack>
                     </Stack>
                   </>
                 )}

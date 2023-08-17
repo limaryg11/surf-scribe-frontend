@@ -78,6 +78,28 @@ function App() {
     }
   };
 
+  // ...
+const handleDeleteNote = (surfLocationId, noteId) => {
+  axios
+    .delete(`${API_URL}/surf-locations/${surfLocationId}/notes/${noteId}`)
+    .then((response) => {
+      console.log('Note deleted:', response.data);
+      // Update the UI to reflect the changes
+      const updatedSurfLocations = surfLocations.map((surfLocation) => {
+        if (surfLocation.id === surfLocationId) {
+          const updatedNotes = surfLocation.notes.filter((note) => note.id !== noteId);
+          return { ...surfLocation, notes: updatedNotes };
+        }
+        return surfLocation;
+      });
+      setSurfLocations(updatedSurfLocations);
+    })
+    .catch((error) => {
+      console.error('Error deleting Note:', error);
+    });
+};
+  
+
 
 
   return (
@@ -107,7 +129,7 @@ function App() {
               <Route path="/locations/add" element={<AddSurfLocation onSubmit={fetchSurfLocations} />} />
               <Route
                 path="/locations/:id"
-                element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} />}
+                element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} handleDeleteNote={handleDeleteNote} />}
               />
               <Route
               path="/home"

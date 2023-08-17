@@ -9,7 +9,7 @@ const MapInstructions = () => {
 
   if (show) {
     return (
-      <Alert variant="info" onClose={() => setShow(false)} dismissible>
+      <Alert variant="info" className="p-3 mb-2 bg-gradient text-dark rounded-5 bg-opacity-50" onClose={() => setShow(false)} dismissible>
         <Alert.Heading>Welcome to your SurfScribe Map Interface</Alert.Heading>
         <p>
           Use this map interface to see your surf locations on the map. 

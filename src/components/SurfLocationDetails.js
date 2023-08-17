@@ -90,7 +90,7 @@ const SurfLocationDetails = ({ surfLocations }) => {
           </Stack>
           </ListGroup>
           
-          <h3>Notes:</h3>
+          <h4>Notes:</h4>
             <ListGroup as="ul">
             {selectedSurfLocation.notes.map((note) => (
               
@@ -152,7 +152,7 @@ const SurfLocationDetails = ({ surfLocations }) => {
             ))}
           </ListGroup>
           <div>
-            <h3>Add New Note:</h3>
+            <h4>Add New Note:</h4>
             <Stack direction="vertical" gap={3}>
             <ListGroup className='addNewNote'>
               <ListGroup.Item as="li" variant="info" className="p-3 mb-2 bg-success bg-gradient text-dark rounded-5 bg-opacity-25">

@@ -5,6 +5,8 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Alert from 'react-bootstrap/Alert';
+import ListGroup from 'react-bootstrap/ListGroup';
+import './AddSurfLocation.css';
 
 
 const API_URL = process.env.REACT_APP_API || 'https://agile-badlands-99127-e0dd8e555c49.herokuapp.com/http://18.117.189.190:8080';
@@ -74,11 +76,13 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
   
   return (
     <div>
-      <h2>Add New Surf Location</h2>
+      <h2 className="p-3 mb-2 bg-light bg-gradient text-dark bg-opacity-50">Add New Surf Location</h2>
+      <ListGroup as="ul">
       <Form onSubmit={handleSubmit}>
+        <ListGroup.Item as="li" action variant="info" className="p-3 mb-2 bg-gradient text-dark rounded-5">
         <Row className="form-group">
           <Form.Group as={Col}>
-            <Form.Label htmlFor="locationName">Location Name:</Form.Label>
+            <Form.Label className="label" htmlFor="locationName">Location Name:</Form.Label>
             <Form.Control
               id="locationName"
               name="locationName"
@@ -111,8 +115,10 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
             )}
           </Form.Group>
         </Row>
+        </ListGroup.Item>
+        <ListGroup.Item as="li" action variant="info" className="p-3 mb-2 bg-gradient text-dark rounded-5">
         <Form.Group className='form-group'>
-          <Form.Label htmlFor="description">Description:</Form.Label>
+          <Form.Label className="label" htmlFor="description">Description:</Form.Label>
           <Form.Control
             as='textarea'
             rows={3}
@@ -124,9 +130,15 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
             required
             />
         </Form.Group>
+        </ListGroup.Item>
         {/* this is where i would add more form fields if desired */}
-        <Button variant='primary' type="submit">Add Surf Location</Button>
+        <Button 
+        id="addSurfLocationButton" 
+        variant='light'
+        className="p-3 mb-2 bg-info bg-gradient text-white rounded-4 bg-opacity-75" 
+        type="submit">Add Surf Location</Button>
       </Form>
+      </ListGroup>
     </div>
   );
 }

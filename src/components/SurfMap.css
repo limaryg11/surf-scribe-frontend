@@ -51,7 +51,7 @@
     color: #f5f5f5; /* Add a background color on hover for visual feedback */
 }
 
-.mapButton {
+#mapButton {
     margin-bottom: 10px;
 }
 

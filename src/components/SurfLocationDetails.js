@@ -71,16 +71,24 @@ const SurfLocationDetails = ({ surfLocations }) => {
   return (
 
     <Container>
-      <h1>Surf Location Details</h1>
+      <h1 className="p-3 mb-2 bg-info bg-gradient text-light bg-opacity-25">Surf Location Details</h1>
+      
       {selectedSurfLocation ? (
+      
         <div className='center'>
+          <ListGroup>
           <Stack gap={3}>
-          <h4 className="p-3 mb-2 bg-light bg-gradient text-dark rounded-5 bg-opacity-50"
-          >Location: <p>{selectedSurfLocation.name}</p> </h4>
-          <h4 className="p-3 mb-2 bg-light bg-gradient text-dark rounded-5 bg-opacity-50">
-            Description: <p>{selectedSurfLocation.description}
-            </p></h4>
+          <h4
+          >Location:
+          </h4>
+          
+          <p className="mb-2 bg-light bg-gradient text-dark rounded-5 bg-opacity-75">{selectedSurfLocation.name}</p>
+          <h4>
+            Description: </h4>
+            
+           <p className="mb-2 bg-light bg-gradient text-dark rounded-5 bg-opacity-75">{selectedSurfLocation.description}</p>
           </Stack>
+          </ListGroup>
           
           <h3>Notes:</h3>
             <ListGroup as="ul">
@@ -145,9 +153,9 @@ const SurfLocationDetails = ({ surfLocations }) => {
           </ListGroup>
           <div>
             <h3>Add New Note:</h3>
-            <Stack gap={3}>
-            <ListGroup>
-              <ListGroup.Item as="li" action variant="info" className="p-3 mb-2 bg-success bg-gradient text-dark rounded-5 bg-opacity-25">
+            <Stack direction="vertical" gap={3}>
+            <ListGroup className='addNewNote'>
+              <ListGroup.Item as="li" variant="info" className="p-3 mb-2 bg-success bg-gradient text-dark rounded-5 bg-opacity-25">
             <>
               <FloatingLabel controlId="floatingTextarea2" label="New Note">
                 <Form.Control

@@ -12,7 +12,6 @@ import Home from './components/Home';
 // import Login from './components/Login';
 // import Register from './components/Register';
 import axios from 'axios';
-import { Stack } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -85,7 +84,7 @@ function App() {
     <Router>
       <Navbar bg="light" data-bs-theme='light'>
         <Container className='nav'>
-          <Navbar.Brand href="/home">SurfScribe</Navbar.Brand>
+          <Navbar.Brand href="/">SurfScribe</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
@@ -125,21 +124,3 @@ function App() {
 }
 
 export default App;
-
-{/* <nav className="nav-links">
-  <Stack direction='horizontal' gap={3}>
-  <a className="nav-link" href="/">Home</a>
-  <a className='nav-link' href="/locations">Surf Spots</a>
-  </Stack> */}
-  {/* may add more */}
-  {/* <a className="nav-link" href="/login">Login</a>
-  <a className="nav-link" href="/register">Register</a> */}
-{/* </nav> */}
-
-  //             {/* <Route path="/login" element={<Login />} />
-  //             <Route path="/register" element={<Register />} /> */}
-  //           </Routes>
-  //         </Container>
-  //         <Footer />
-  //     </Router>
-  // );

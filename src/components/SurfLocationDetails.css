@@ -1,11 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:wght@300&family=Rock+Salt&display=swap');
+
+.label {
+    font-family: 'Rock Salt', cursive;
+}
+
+h2 {
+    font-size: large;
+}
+
+h4, h3 {
+    font-family: 'Rock Salt', cursive;
+}
+
 h1 {
-    color:white;
+    font-family: 'Rock Salt', cursive;
+    color:CFF4FC;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-
+.addNewNote {
+    justify-content: center;
+    align-items: center;
+}
 .center {
     text-align: center;
 }
@@ -15,5 +33,5 @@ h1 {
 }
 
 .editButton {
-    margin-left: 20px;
+    text-align: center;
 }

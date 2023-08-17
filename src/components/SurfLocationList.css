@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+
+
 h2 {
     justify-content: center;
     text-align: center;
@@ -5,14 +8,20 @@ h2 {
 }
 
 .list-group{
-    max-height: 300px;
+    max-height: 400px;
     margin-bottom: 10px;
     overflow:scroll;
     -webkit-overflow-scrolling: touch;
+    text-align: center;
 }
 
 #addNewButton {
     margin-top: 20px;
-    text-align: center;
-    justify-content: center;
+    margin-left: 2vw;
+}
+
+h5 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: bolder;
+    
 }

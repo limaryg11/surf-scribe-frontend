@@ -1,16 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:wght@300&family=Rock+Salt&display=swap');
 
 
-#instructionButton {
-    margin-bottom: 10px;
-}
-
-.alert-logo {
+h2 {
     font-family: 'Rock Salt', cursive;
-}
-
-.info-message {
-    white-space: pre-line;
-    font-family: 'Architects Daughter', cursive;
     font-size: large;
 }

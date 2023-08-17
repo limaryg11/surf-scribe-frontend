@@ -67,7 +67,12 @@ const SurfMap = ({ surfLocations }) => {
       {/* <h2 className="tag">Your Surf Locations</h2> */}
       <Row>
         <Link to="/locations/add">
-            <Button size="sm" className="mapButton">Add a New Surf Location</Button></Link>
+            <Button 
+            size="md" 
+            id="mapButton"
+            variant="light"
+            className="bg-info text-dark rounded-4 bg-opacity-75" 
+            >Add a New Surf Location</Button></Link>
       </Row>
       <Row className="map-container" ref={mapContainerRef} />
       <Row className="locations-list">

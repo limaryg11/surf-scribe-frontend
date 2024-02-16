@@ -65,10 +65,6 @@ const SurfLocationDetails = ({ surfLocations, handleDeleteNote }) => {
         console.error('Error updating Note:', error);
       });
   };
-
-  
-
-  
   
   return (
 

@@ -8,20 +8,16 @@ import SurfLocationDetails from './components/SurfLocationDetails';
 import AddSurfLocation from './components/AddSurfLocation';
 import Footer from './components/Footer';
 import SurfMap from './components/SurfMap';
-import Home from './components/Home';
-// import Login from './components/Login';
-// import Register from './components/Register';
 import axios from 'axios';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const API_URL = process.env.REACT_APP_API || 'https://agile-badlands-99127-e0dd8e555c49.herokuapp.com/http://18.117.189.190:8080';
+const API_URL = process.env.REACT_APP_API
 
 function App() {
 
@@ -78,7 +74,7 @@ function App() {
     }
   };
 
-  // ...
+
 const handleDeleteNote = (surfLocationId, noteId) => {
 
   const confirmed = window.confirm("Are you sure you want to delete this location?");
@@ -117,7 +113,7 @@ const handleDeleteNote = (surfLocationId, noteId) => {
             <Nav className="ml-auto">
               <Nav.Link href="/">Map</Nav.Link>
               <Nav.Link href="/locations">Surf Spots</Nav.Link>
-              {/* Add more Nav.Link components */}
+              {/* add more Nav.Link components */}
             </Nav>
           </Navbar.Collapse>
         </Container>
@@ -137,10 +133,8 @@ const handleDeleteNote = (surfLocationId, noteId) => {
                 element={<SurfLocationDetails surfLocations={surfLocations} selectedSurfLocation={selectedSurfLocation} handleDeleteNote={handleDeleteNote} />}
               />
               <Route
-              path="/home"
-              element={<Home />}
+              path="/"
               />
-              {/* Add more routes */}
             </Routes>
           </Col>
         </Row>

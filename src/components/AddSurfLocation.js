@@ -9,8 +9,7 @@ import ListGroup from 'react-bootstrap/ListGroup';
 import './AddSurfLocation.css';
 
 
-const API_URL = process.env.REACT_APP_API || 'https://agile-badlands-99127-e0dd8e555c49.herokuapp.com/http://18.117.189.190:8080';
-
+const API_URL = process.env.REACT_APP_API
 
 const AddSurfLocation = ({onSubmit, surfLocations}) => {
   const [name, setName] = useState('');
@@ -22,7 +21,7 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
     try {
       const response = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${name}.json`, {
         params: {
-          access_token: 'pk.eyJ1IjoibGltYXJ5ZzExIiwiYSI6ImNsa3ZwdGRtMzBtb3kzZ29jM3R3MDBoanoifQ.2QNl2lmg3q3v0xWuflJeYQ',
+          access_token: process.env.REACT_APP_MAPBOX_TOKEN,
         },
       });
       setIsValidLocation(response.data.features.length > 0); // Check if location is valid
@@ -65,8 +64,8 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
     
     try {
       await axios.post(`${API_URL}/surf-locations`, newSurfLocation);
-      onSubmit(); // Fetch updated surf locations
-      window.location.href = '/locations'; // Navigate back to the map
+      onSubmit(); // fetch updated surf locations
+      window.location.href = '/locations'; // navigate back to the map
     } catch (error) {
       console.error('Error adding SurfLocation:', error);
     }
@@ -91,7 +90,7 @@ const AddSurfLocation = ({onSubmit, surfLocations}) => {
               value={name}
               onChange={(event) => {
                 setName(event.target.value);
-                handleLocationValidation(); // Trigger validation on every change
+                handleLocationValidation(); // trigger validation on every change
               }}
               required
             />

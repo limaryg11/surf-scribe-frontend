@@ -7,8 +7,7 @@ function Login() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Perform login operation using the provided email and password
-    // You can use axios or fetch to make a login API request to your backend
+    // here--perform login operation using the provided email and password
   };
 
   return (

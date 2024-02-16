@@ -113,7 +113,6 @@ const handleDeleteNote = (surfLocationId, noteId) => {
             <Nav className="ml-auto">
               <Nav.Link href="/">Map</Nav.Link>
               <Nav.Link href="/locations">Surf Spots</Nav.Link>
-              {/* add more Nav.Link components */}
             </Nav>
           </Navbar.Collapse>
         </Container>

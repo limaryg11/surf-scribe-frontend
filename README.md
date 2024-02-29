@@ -1,70 +1,46 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# SurfScribe Web Application
 
-In the project directory, you can run:
+This application was created as my solo capstone project during my time at Ada Developers Academy bootcamp. I created this app to learn new technologies, to revisit React.js topics, like state management, that I found challenging, and to have a little fun blending my love for surfing with a technical project.
 
-### `yarn start`
+Link to source code for entire front end of SurfScribe Web Application: [Link](https://github.com/limaryg11/surf-scribe-frontend/tree/main/src)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Purpose
 
-### `yarn test`
+**Intended Use Case:**
+Allow users to input details about places they have surfed worldwide, including the name of the location, notes, and descriptions. The main feature is a map interface with markers and popups linked to saved surf locations. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Overview
 
-### `yarn build`
+### `surfLocations` Prop:
+- The `surfLocations` prop represents data fetched from the backend database and passed to the SurfMap component. It is an array of objects, where each object contains details about a specific surf location.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Main Features:
+- Integration with Mapbox API for map rendering and user interaction.
+- Utilizes React Bootstrap and SurfMap.css for styling.
+- Incorporates React hooks like `useEffect`, `useRef`, and `useState` for managing component state and lifecycle.
+- Handles events (like when a user clicks on a location) and uses PropTypes for prop validation.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Highlighted Features
 
-### `yarn eject`
+- **User Input Interaction:**
+  - User can input new surf location with details such as name and description via forms that undergo validation.
+  - User input triggers a backend API call, fetching longitude and latitude coordinates from an external API and adding those as fields of each surf location in the database.
+  - After input, user can navigate to location specific pages to edit details/notes.
+  - The updated `surfLocations` then populates the map interface with markers based on coordinates for each location.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Map Interaction:**
+  - Users can navigate the map, clicking on markers to view popups with brief descriptions.
+  - Links within popups allow users to navigate a page to update or delete notes/descriptions for specific surf locations.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Interactive List:**
+  - A scrollable list displays the clickable surf location names.
+  - Clicking on a location name in list "flies" or zooms into the corresponding location on the map.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Home Page of SurfScribe Web App:
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<img width="1170" alt="Screenshot 2024-02-15 at 3 12 10 PM" src="https://github.com/limaryg11/limary_airbnb_code_sample/assets/105609727/d2d97cd5-cfd4-44a7-94d2-464ec191e029">

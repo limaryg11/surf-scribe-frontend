@@ -38,7 +38,7 @@ h1 {
 }
 
 .noteText {
-    max-width: 40vw; /* Set the maximum width for the container */
-    overflow-wrap: break-word; /* Allow words to wrap within the container */
-    word-wrap: break-word; /* Fallback for older browsers */
+    max-width: 40vw; /* set the maximum width for the container */
+    overflow-wrap: break-word; /* allow words to wrap within the container */
+    word-wrap: break-word; /* fallback for older browsers */
   }

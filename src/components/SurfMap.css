@@ -33,7 +33,7 @@
     overflow-y: auto;
     padding: 0;
 }
-/* ... other styles ... */
+
 
 
 
@@ -42,13 +42,13 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-    color: #007bff; /* Change color to your desired link color */
-    text-decoration: underline; /* Add underline to indicate a link */
-    margin-bottom: 10px; /* Add some spacing between list items */
+    color: #007bff; /* change color to desired link color */
+    text-decoration: underline; /* add underline to indicate a link */
+    margin-bottom: 10px;
 }
 
 .location-item:hover {
-    color: #f5f5f5; /* Add a background color on hover for visual feedback */
+    color: #f5f5f5;
 }
 
 #mapButton {

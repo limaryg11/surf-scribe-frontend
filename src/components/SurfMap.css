@@ -17,22 +17,7 @@
     border-radius: 20%;
 }
 
-/* .locations-list {
-    margin-top: 30px;
-    align-items: center;
-    justify-content: center;
-    color: darkblue;
-    background-color: rgb(254, 254, 254);
-    border: solid;
-    border-color: rgb(252, 252, 252);
-    background-image: url(https://i.pinimg.com/564x/09/83/75/098375689d7a2f5305832af7529b37dc.jpg);
-    text-align: center;
-    border-radius: 45%;
-    width: 40vw;
-    max-height: 15vh;
-    overflow-y: auto;
-    padding: 0;
-} */
+/* https://i.pinimg.com/564x/09/83/75/098375689d7a2f5305832af7529b37dc.jpg */
 
 
 .locations-list {

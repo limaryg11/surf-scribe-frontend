@@ -115,7 +115,7 @@ const SurfMap = ({ surfLocations }) => {
 SurfMap.propTypes = {
   surfLocations: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       description: PropTypes.string.isRequired,
       longitude: PropTypes.number.isRequired,

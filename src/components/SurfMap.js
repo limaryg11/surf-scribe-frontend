@@ -1,32 +1,30 @@
-import React, { useRef, useEffect, useState } from "react";
-// import Mapbox library and styles
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-// import custom css
-import "./SurfMap.css";
-// import custom component 
-import MapInstructions from "./MapInstructions";
-// import Boostrap components
-import { Container, Row } from "react-bootstrap";
+// imports
+import React, { useRef, useEffect, useState } from 'react';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import './SurfMap.css';
+import MapInstructions from './MapInstructions';
+import { Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-// import React Router's Link component
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types'
 
 
 // mapbox access token using env variable for security
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_TOKEN
 
-// define the SurfMap component with destructuring for props
+// define the SurfMap component which takes prop surfLocations
 const SurfMap = ({ surfLocations }) => {
+
   // create reference to map container
   const mapContainerRef = useRef(null);
+
   // define state variable for map
   const [map, setMap] = useState(null);
 
   // Initialize map when component mounts
   useEffect(() => {
-    // create a new mapbox map
+    // initialize a mapbox map 
     const initializedMap = new mapboxgl.Map({
       container: mapContainerRef.current,
       style: 'mapbox://styles/mapbox/streets-v12',
@@ -40,12 +38,10 @@ const SurfMap = ({ surfLocations }) => {
     setMap(initializedMap);
     
     // clean up when component unmounted
-    // empty array ensures effect runs only once
     return () => initializedMap.remove();
   }, []);
   
-  // function to handle click on a location on map 
-  // with a specified zoom level
+  // function to handle click on a location and view on map with a specified zoom level
   const handleLocationClick = (location) => {
     if (map) {
       map.flyTo({
@@ -55,13 +51,12 @@ const SurfMap = ({ surfLocations }) => {
     }
   };
 
-  // effect to add markers and popups to map when surfLocations
-  // or map changes
+  // effect to add markers and popups to map when surfLocations or map changes
   useEffect(() => {
     if (map) {
-      // loop through surfLocations and add markers/popups
+      // loop through surfLocations
       surfLocations.forEach((surfLocation) => {
-        // create a marker at the specified coordinates
+        // create a marker at the specified coordinates of location
         const marker = new mapboxgl.Marker()
           .setLngLat([surfLocation.longitude, surfLocation.latitude])
           .addTo(map);
@@ -74,8 +69,7 @@ const SurfMap = ({ surfLocations }) => {
             <a href="/locations/${surfLocation.id}">See Details</a>
           </div>`);
 
-        // attach the popup to the marker so that when you click
-        // on marker you will see the popup
+        // attach the popup to the marker so that when user clicks on marker they will see the popup
         marker.setPopup(popup);
       });
     }
@@ -84,27 +78,27 @@ const SurfMap = ({ surfLocations }) => {
 
   // rendering of SurfMap compnent
   return (
-    <Container className="map-and-list-container">
+    <Container className='map-and-list-container'>
       {/* render custom MapInstructions component */}
-      {/* This gives brief instructions to user on how to use map */}
+      {/* this gives brief instructions to user on how to use map */}
       <MapInstructions />
       <Row>
         {/* button to add new surf location */}
-        {/* redirects to component that prompts user to 
-        fill out details for a new surf location */}
-        <Link to="/locations/add">
+        {/* this redirects to a separate component that prompts user to 
+        fill out details for a new surf location and submit it */}
+        <Link to='/locations/add'>
             <Button 
-            size="md" 
-            id="mapButton"
-            variant="light"
-            className="bg-info text-dark rounded-4 bg-opacity-75" 
+            size='md' 
+            id='mapButton'
+            variant='light'
+            className='bg-info text-dark rounded-4 bg-opacity-75' 
             >Add a New Surf Location</Button></Link>
       </Row>
       {/* render the map container */}
-      <Row className="map-container" ref={mapContainerRef} />
+      <Row className='map-container' ref={mapContainerRef} />
       {/* render a list of surf locations with click event handler
       that allows the user to visualize specific locations with marker/popup on map */}
-      <Row className="locations-list">
+      <Row className='locations-list'>
         <ul>
           {surfLocations.map((location) => (
             <li className='location-item' key={location.id} onClick={() => handleLocationClick(location)}>
@@ -117,7 +111,7 @@ const SurfMap = ({ surfLocations }) => {
   );
 };
 
-
+// proptypes to ensure correct datatype for each prop
 SurfMap.propTypes = {
   surfLocations: PropTypes.arrayOf(
     PropTypes.shape({
@@ -130,5 +124,5 @@ SurfMap.propTypes = {
   ).isRequired,
 };
 
-// expor component
+// export component
 export default SurfMap;
